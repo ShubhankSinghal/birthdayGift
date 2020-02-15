@@ -1,14 +1,9 @@
 var t=null;
 var displayImgCount = 0;
 
-var i = 0;
-var txt = 'HAPPY BIRTHDAY';
-var txt1= "PAKHHHHHHH"
-var speed = 200;
 
 window.onload = function(){
     cycleImage();
-    typeWriter();
 }
 
 function cycleImage(){
@@ -26,12 +21,14 @@ function cycleImage(){
 
 
 
-function typeWriter() {
-    if (i < txt.length) {
-        document.getElementById("demo1").innerHTML += txt.charAt(i);
-        i++;
-        setTimeout(typeWriter, speed);
-    }
+
+if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage('resize', "*");
 }
 
-
+window.open = function() {};
+window.print = function() {};
+// Support hover state for mobile.
+if (false) {
+    window.ontouchstart = function() {};
+}
